@@ -22,7 +22,7 @@ export class PlayingCardComponent implements OnChanges {
     if(changes['produit']){
       if(changes['produit'].previousValue?.type != changes['produit'].currentValue.tye){
         this.productTypeIcon = ProductTypeProperties[this.produit().type].imageUrl;
-        this.backgroundColor = ProductTypeProperties[this.produit().type].color;
+        this.backgroundColor = ProductTypeProperties[this.produit().type].color;        
       }
     }
   } 
