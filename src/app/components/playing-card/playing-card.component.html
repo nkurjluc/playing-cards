@@ -1,5 +1,5 @@
 <div id="card">
-    <div id="inside" [style.background-color]="backgroundColor">
+    <div id="inside" [style.background-color]="backgroundColor()">
         <header>
             <div class="left">
                 <div id="name">{{produit().name}}</div>
@@ -7,7 +7,7 @@
 
             <div class="right">
                 <div id="hp">{{produit().hp}} HP</div>
-                <img class="energy icon" [src]="productTypeIcon">
+                <img class="energy icon" [src]="productTypeIcon()">
             </div>
         </header>
 

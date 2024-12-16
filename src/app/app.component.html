@@ -1,6 +1,6 @@
-<button (click)="toggleProduct()">Toogle Product</button>
+
 <div id="card-list">    
-    <app-playing-card [produit]="selectedProduct()"/>
+    <app-playing-card *ngFor="let product of produits" [produit]="product"/>
 </div>
 
 
@@ -11,7 +11,8 @@
 
 
 
-
+<!--<button (click)="toggleProduct()">Toogle Product</button>-->
+<!--<app-playing-card [produit]="selectedProduct()"/>-->
 <!--<div id="card-list">
     <app-playing-card [produit]="produits[selectedProductIndex()]"/>
     <app-playing-card/>

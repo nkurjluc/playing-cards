@@ -1,5 +1,5 @@
 import { ProductType } from './../../outils/produit.outils';
-import { Component, input, Input, InputSignal, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, computed, input, Input, InputSignal, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Produit } from '../../models/produit.model';
 import { ProductTypeProperties } from '../../outils/produit.outils';
 
@@ -11,21 +11,30 @@ import { ProductTypeProperties } from '../../outils/produit.outils';
   styleUrl: './playing-card.component.css'
 })
 
-export class PlayingCardComponent implements OnChanges {
+export class PlayingCardComponent {
     
   produit =  input(new Produit());
-  productTypeIcon: string = "/img/electric.png";
-  backgroundColor: string = "rgb(255,255,104)";
-
   
-  ngOnChanges(changes: SimpleChanges): void {
+  productTypeIcon = computed(() => {
+    return ProductTypeProperties[this.produit().type].imageUrl;
+  })
+  
+  backgroundColor = computed(() =>{
+    return ProductTypeProperties[this.produit().type].color;
+  })
+ 
+
+  //Cette partie est implementée quand on utilise OnChanges
+  //backgroundColor: string = "rgb(255,255,104)";
+  //productTypeIcon: string = "/img/electric.png";
+  /*ngOnChanges(changes: SimpleChanges): void {
     if(changes['produit']){
       if(changes['produit'].previousValue?.type != changes['produit'].currentValue.tye){
         this.productTypeIcon = ProductTypeProperties[this.produit().type].imageUrl;
         this.backgroundColor = ProductTypeProperties[this.produit().type].color;        
       }
     }
-  } 
+  }*/ 
   
   /*@Input({alias: 'mon-produit',
     transform: (value: Produit) => {
