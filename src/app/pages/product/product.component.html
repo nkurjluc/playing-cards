@@ -1,0 +1,14 @@
+<form (submit)="submit($event)">
+    <div class="form-field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" [formControl]="name"/>
+        @if(name.invalid && (name.dirty || name.touched)){
+            <div class="error">This field is requires</div>
+        }
+        <button type="submit" [disabled]="name.invalid">Save</button>
+        
+    </div>
+
+</form>
+
+ 

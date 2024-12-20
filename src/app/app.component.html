@@ -1,7 +1,4 @@
-
-<div id="card-list">    
-    <app-playing-card *ngFor="let product of produits" [produit]="product"/>
-</div>
+<router-outlet></router-outlet>
 
 
 
@@ -11,16 +8,6 @@
 
 
 
-<!--<button (click)="toggleProduct()">Toogle Product</button>-->
-<!--<app-playing-card [produit]="selectedProduct()"/>-->
-<!--<div id="card-list">
-    <app-playing-card [produit]="produits[selectedProductIndex()]"/>
-    <app-playing-card/>
-    <app-playing-card [mon-produit]="produit1"/>
 
 
-<app-search-bar (submit)="increaseCount()" [(search)]="search"/>
 
-Search : {{search}} <br/>
-Click count: {{count}}
-</div>-->
