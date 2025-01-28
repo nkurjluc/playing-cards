@@ -6,7 +6,7 @@ export class Produit{
     image: string = "/img/amstel.png";
     type : ProductType = ProductType.AMSTEL;
     hp: number = 65;
-    figureCatpion: string = "Amstel";
+    figureCaption: string = "Amstel";
     attackName: string = "Prix";
     attackStrength: number = 3500;
     attackDescription: string = "La bierre fraiche est bonne pour la santé";

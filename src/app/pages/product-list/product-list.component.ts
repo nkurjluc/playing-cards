@@ -4,6 +4,7 @@ import { Produit } from '../../models/produit.model';
 import { CommonModule } from '@angular/common';
 import { PlayingCardComponent } from '../../components/playing-card/playing-card.component';
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -13,7 +14,8 @@ import { SearchBarComponent } from '../../components/search-bar/search-bar.compo
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {
-  productService = inject(ProductService);
+  private productService = inject(ProductService);
+  private router = inject(Router);
   produits = signal<Produit[]>([]);  
   search = model('');
 
@@ -26,8 +28,13 @@ export class ProductListComponent {
   }  
 
   addProduct(){
-    const genericProduct = new Produit()
+    this.router.navigate(['product']);
+    /*const genericProduct = new Produit()
     this.productService.add(genericProduct);
-    this.produits.set(this.productService.getAll());
+    this.produits.set(this.productService.getAll());*/
+  }
+
+  openProduct(product: Produit){
+    this.router.navigate(['product', product.id])
   }
 }

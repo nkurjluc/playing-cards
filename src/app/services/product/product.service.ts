@@ -41,7 +41,7 @@ export class ProductService {
     produit1.id = this.currentIndex++;
     produit1.name = "Amstel 65 cl";
     produit1.hp = 65;
-    produit1.figureCatpion = "Amstel";
+    produit1.figureCaption = "Amstel";
     this.productsList.push(produit1);
 
     const produit2 = new Produit();
@@ -50,7 +50,7 @@ export class ProductService {
     produit2.image = "/img/bock.png";
     produit2.type = ProductType.BOCK;
     produit2.hp = 33;
-    produit2.figureCatpion = "Bock";
+    produit2.figureCaption = "Bock";
     this.productsList.push(produit2);
 
     const produit3 = new Produit();
@@ -59,7 +59,7 @@ export class ProductService {
     produit3.image = "/img/heineken.png";
     produit3.type = ProductType.HEINEKEN;
     produit3.hp = 33;
-    produit3.figureCatpion = "Heineken";
+    produit3.figureCaption = "Heineken";
     this.productsList.push(produit3);
 
     const produit4 = new Produit();
@@ -68,7 +68,7 @@ export class ProductService {
     produit4.image = "/img/royal.png";
     produit4.type = ProductType.ROYAL;
     produit4.hp = 50;
-    produit4.figureCatpion = "Royal";
+    produit4.figureCaption = "Royal";
     this.productsList.push(produit4);
   }
 

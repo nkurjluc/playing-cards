@@ -1,7 +1,7 @@
 <app-search-bar [(search)]="search"></app-search-bar>
 <div id="card-list">  
     @for(product of filteredProducts(); track product.name){       
-        <app-playing-card  [produit]="product"/>        
+        <app-playing-card  [produit]="product" (click)="openProduct(product)"/>        
     }@empty{
         <div class="center">Aucun produit trouvé !</div>
     }     
@@ -11,4 +11,4 @@
     <div class="center"> {{filteredProducts().length}} produit(s) Trouvé(s) !</div>
 }
 
-<div class="center"><button (click)="addProduct()">Add Generic Product</button></div>
+<div class="center"><button (click)="addProduct()">Add Product</button></div>
