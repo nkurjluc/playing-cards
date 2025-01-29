@@ -3,13 +3,13 @@
 </div>
 <div class="main">
     <form [formGroup]="formGroup" (submit)="submit($event)">
-        <div class="form-field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" formControlName="name"/>
+        <mat-form-field>
+            <mat-label for="name">Name</mat-label>
+            <input matInput id="name" name="name" type="text" formControlName="name"/>
             @if(isFieldValid('name')){
-                <div class="error">This field is requires.</div>
+                <mat-error>This field is requires.</mat-error>
             }               
-        </div>
+        </mat-form-field>
         <div class="form-field">
             <label for="image">Image</label>
             <input id="image" name="image" type="file" (change)="onFileChange($event)"/>
@@ -78,8 +78,8 @@
         </div>
 
         <div class="button-container">
-            <button (click)="navigateBack()"> Back</button>
-            <button type="submit" [disabled]="formGroup.invalid">Save</button>             
+            <button mat-button (click)="navigateBack()"> Back</button>
+            <button mat-flat-button type="submit" [disabled]="formGroup.invalid">Save</button>             
         </div>
     
     </form>

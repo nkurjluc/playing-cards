@@ -1,18 +1,21 @@
 import { ProductService } from './../../services/product/product.service';
-import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, signal, input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Produit } from '../../models/produit.model';
 import { ProductType } from '../../outils/produit.outils';
 import { PlayingCardComponent } from '../../components/playing-card/playing-card.component';
+import { MatButtonModule} from '@angular/material/button';
+import { MatInputModule} from '@angular/material/input';
+
 
 @Component({
-  selector: 'app-product',
-  standalone: true,
-  imports: [ReactiveFormsModule, PlayingCardComponent],
-  templateUrl: './product.component.html',
-  styleUrl: './product.component.css'
+    selector: 'app-product',
+    standalone: true,
+    imports: [ReactiveFormsModule, PlayingCardComponent, MatButtonModule, MatInputModule],
+    templateUrl: './product.component.html',
+    styleUrl: './product.component.css'
 })
 export class ProductComponent implements OnInit, OnDestroy{
   
@@ -98,10 +101,5 @@ export class ProductComponent implements OnInit, OnDestroy{
     }
   }
 
-  /*next(){
-    let nextId = this.productId || 0;
-    nextId++;
-    this.router.navigate(['/product/'+nextId])
-  }*/
 
 }

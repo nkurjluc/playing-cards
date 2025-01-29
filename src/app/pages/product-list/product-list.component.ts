@@ -7,11 +7,10 @@ import { SearchBarComponent } from '../../components/search-bar/search-bar.compo
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-product-list',
-  standalone: true,
-  imports: [CommonModule, PlayingCardComponent, SearchBarComponent],
-  templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.css'
+    selector: 'app-product-list',
+    imports: [CommonModule, PlayingCardComponent, SearchBarComponent],
+    templateUrl: './product-list.component.html',
+    styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {
   private productService = inject(ProductService);
