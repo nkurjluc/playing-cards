@@ -8,12 +8,15 @@ import { ProductType } from '../../outils/produit.outils';
 import { PlayingCardComponent } from '../../components/playing-card/playing-card.component';
 import { MatButtonModule} from '@angular/material/button';
 import { MatInputModule} from '@angular/material/input';
+import { MatSelectModule} from '@angular/material/select';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteProductConfirmationDialogComponent } from '../../components/delete-product-confirmation-dialog/delete-product-confirmation-dialog.component';
 
 
 @Component({
     selector: 'app-product',
     standalone: true,
-    imports: [ReactiveFormsModule, PlayingCardComponent, MatButtonModule, MatInputModule],
+    imports: [ReactiveFormsModule, PlayingCardComponent, MatButtonModule, MatInputModule, MatSelectModule],
     templateUrl: './product.component.html',
     styleUrl: './product.component.css'
 })
@@ -23,6 +26,7 @@ export class ProductComponent implements OnInit, OnDestroy{
   private router = inject(Router);
   private fb = inject(FormBuilder);
   private productService = inject(ProductService);
+  private readonly dialog = inject(MatDialog);
 
   private routeSubscription: Subscription | null = null;
   private formValuesSubscription: Subscription | null = null;
@@ -41,7 +45,6 @@ export class ProductComponent implements OnInit, OnDestroy{
   product: Produit = Object.assign(new Produit(), this.formGroup.value);
   listProducts = Object.values(ProductType); 
   productId = -1;
-  //productId = signal<number | undefined>(undefined)
 
   ngOnInit(): void {
     
@@ -85,6 +88,16 @@ export class ProductComponent implements OnInit, OnDestroy{
   isFieldValid(name: string){
     const formControl = this.formGroup.get(name);
     return formControl?.invalid && (formControl?.dirty || formControl?.touched)
+  }
+
+  deleteProduct(){
+    const dialogRef = this.dialog.open(DeleteProductConfirmationDialogComponent);
+    dialogRef.afterClosed().subscribe(confirmation =>{
+      if(confirmation){
+        this.productService.delete(this.productId);
+        this.navigateBack();
+      }
+    })
   }
 
   onFileChange(event : any){
