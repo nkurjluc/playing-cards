@@ -16,7 +16,7 @@ export class LoginService {
   private BASE_URL = 'http://localhost:8000';
 
   user = signal<User | null | undefined>(undefined);
-
+  
   constructor() { }
 
   login(credentials : Credentials): Observable<User | null | undefined> {

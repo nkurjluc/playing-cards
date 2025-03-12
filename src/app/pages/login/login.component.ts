@@ -28,14 +28,16 @@ export class LoginComponent implements OnDestroy {
 
   invalidCredentials=false;
 
-  login(){
-    this.loginSubscription = this.loginServive.login(
+  login(){    
+    console.log('User:'+User);
+    this.loginSubscription = this.loginServive.login(      
       this.loginFormGroup.value as Credentials).subscribe({
       next: (result: User | null | undefined)=> {
+        console.log('passe 1');
         this.navigateHome();
       },
-      error: error =>{
-        console.log(error);
+      error: error =>{        
+        console.log(error);        
         this.invalidCredentials = true;
       }
     })
